@@ -1,0 +1,12 @@
+root: true
+parser: "@typescript-eslint/parser"
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/recommended
+  - prettier
+  - plugin:prettier/recommended
+plugins:
+  - prettier
+  - sort-imports-es6-autofix
+rules:
+  sort-imports-es6-autofix/sort-imports-es6: error

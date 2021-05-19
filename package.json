@@ -1,0 +1,55 @@
+{
+  "name": "mc-stats-daemon",
+  "version": "0.1.0",
+  "description": "Watch minecraft player stats files",
+  "homepage": "https://github.com/hendrikbl/mc-stats-daemon",
+  "author": "hendrikbl",
+  "bugs": {
+    "url": "https://github.com/hendrikbl/mc-stats-daemon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hendrikbl/mc-stats-daemon"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "tsc -p ./tsconfig.build.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node src/cli/index.ts",
+    "prebuild": "yarn build.clean",
+    "build.clean": "rimraf ./dist",
+    "lint": "eslint ."
+  },
+  "bin": {
+    "mc-stats-daemon": "dist/cli/index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "chokidar": "^3.5.1",
+    "cliui": "^7.0.4",
+    "figures": "^3.2.0",
+    "js-yaml": "^4.0.0",
+    "tslib": "^2.1.0",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.0",
+    "@types/node": "^14.14.36",
+    "@types/yargs": "^16.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}

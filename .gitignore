@@ -1,0 +1,26 @@
+# dependencies
+/node_modules
+
+# production
+/binaries
+/dist
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.vscode
+.idea
+.nyc_output
+.DS_Store
+.awcache
+.cache-loader
+.cache
+.rpt2_cache
+
+# logs
+*.log*
+*-debug.log*
+*-error.log*
