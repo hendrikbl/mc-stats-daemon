@@ -4,4 +4,5 @@ server:
     - world
     - nether
 database:
-  url: localhost
+  url: http://localhost:8086
+  token: "123456789123456789"
