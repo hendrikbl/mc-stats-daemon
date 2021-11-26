@@ -11,6 +11,7 @@ export function startWatcher(
     const watcher = chokidar.watch(paths, {
         ignored: /(^|\/\\])\../, // ignore dotfiles
         persistent: true,
+        usePolling: true,
     })
 
     // Add event listeners

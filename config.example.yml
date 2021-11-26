@@ -1,8 +1,8 @@
 server:
-  root: test
+  root: server
   worlds:
     - world
     - nether
 database:
-  url: http://localhost:8086
+  url: http://influxdb:8086
   token: "123456789123456789"

@@ -1,0 +1,37 @@
+services:
+    mc-stats-daemon:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: "mc-stats-daemon"
+        volumes:
+            - ./test:/server
+            - ./config.example.yml:/config.yml:ro
+        command:
+            - "watch"
+            - "config.yml"
+        depends_on:
+            - influxdb
+        restart: unless-stopped
+
+    influxdb:
+        image: influxdb:2.0
+        volumes:
+            # Mount for influxdb data directory
+            - ./influxdb/data:/var/lib/influxdb
+            # Mount for influxdb configuration
+            - ./influxdb/config/:/etc/influxdb/
+        environment:
+            - DOCKER_INFLUXDB_INIT_MODE=setup
+            - DOCKER_INFLUXDB_INIT_USERNAME=mc-stats-daemon
+            - DOCKER_INFLUXDB_INIT_PASSWORD=password12345
+            - DOCKER_INFLUXDB_INIT_ORG=mc-stats
+            - DOCKER_INFLUXDB_INIT_BUCKET=mc-stats
+            - DOCKER_INFLUXDB_INIT_RETENTION=1w
+            - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=123456789123456789
+        ports:
+            # The API for InfluxDB is served on port 8086
+            - "8086:8086"
+            - "8082:8082"
+            # UDP Port
+            - "8089:8089/udp"
